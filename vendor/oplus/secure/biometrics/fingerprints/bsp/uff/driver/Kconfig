@@ -1,0 +1,26 @@
+menuconfig OPLUS_FINGERPRINT
+       bool "OPLUS fingerprint"
+       depends on SPI_MASTER
+       help
+       Say Y here to enable OPLUS fingerprint support
+
+if OPLUS_FINGERPRINT
+### platform config
+config OPLUS_FINGERPRINT_QCOM
+       default n
+       tristate "Fingerprint base on QCOM"
+
+config OPLUS_FINGERPRINT_MTK
+       default n
+       tristate "Fingerprint base on MTK"
+
+### fingerprint feature config
+config OPLUS_FINGERPRINT_ENABLE_TEE_BINDERCORE
+       default n
+       tristate "Fingerprint mtk bind big core"
+
+config OPLUS_FINGERPRINT_REE_SPI
+       default n
+       tristate "Fingerprint ree spi"
+
+endif #OPLUS_FINGERPRINT
